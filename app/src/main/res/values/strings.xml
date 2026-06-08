@@ -1,0 +1,53 @@
+<resources>
+    <string name="app_name">IP 搜索器</string>
+
+    <!-- Tab Labels -->
+    <string name="tab_device_info">本机信息</string>
+    <string name="tab_lan_scan">局域网扫描</string>
+
+    <!-- Device Info -->
+    <string name="title_device_info">本机信息</string>
+    <string name="label_ip_address">IP 地址</string>
+    <string name="label_mac_address">MAC 地址</string>
+    <string name="label_gateway">网关地址</string>
+    <string name="label_subnet_mask">子网掩码</string>
+    <string name="label_network_type">网络类型</string>
+    <string name="label_ssid">SSID</string>
+    <string name="label_signal_strength">信号强度</string>
+    <string name="mac_unavailable">不可用（系统隐私保护）</string>
+    <string name="not_connected">未连接</string>
+    <string name="wifi_connected">WiFi 已连接</string>
+    <string name="hotspot_active">热点已开启</string>
+    <string name="mobile_data">移动数据</string>
+
+    <!-- LAN Scan -->
+    <string name="title_lan_scan">局域网扫描</string>
+    <string name="button_start_scan">开始扫描</string>
+    <string name="button_stop_scan">停止扫描</string>
+    <string name="scanning_progress">正在扫描 %s (%d/%d)</string>
+    <string name="scan_completed">扫描完成，发现 %d 台设备</string>
+    <string name="scan_cancelled">扫描已取消，发现 %d 台设备</string>
+    <string name="scan_error_no_network">请先连接 WiFi 或开启热点</string>
+    <string name="scan_error_partial">此 Android 版本限制局域网扫描，仅显示已缓存的设备信息</string>
+    <string name="scan_error_ping_mode">当前系统版本限制，无法获取 MAC 地址，仅显示设备 IP</string>
+    <string name="devices_found">已发现 %d 台设备</string>
+    <string name="no_devices_found">未发现设备</string>
+    <string name="network_mode_wifi">WiFi 路由器</string>
+    <string name="network_mode_hotspot">手机热点</string>
+    <string name="network_mode_unknown">未知</string>
+    <string name="subnet_label">网段: %s.x</string>
+    <string name="empty_state_title">局域网扫描</string>
+    <string name="empty_state_subtitle">点击扫描按钮发现局域网中的设备</string>
+    <string name="device_type_local">本机</string>
+    <string name="device_type_gateway">网关（可能的路由器）</string>
+
+    <!-- Signal Strength -->
+    <string name="signal_excellent">强</string>
+    <string name="signal_good">良</string>
+    <string name="signal_medium">中</string>
+    <string name="signal_weak">弱</string>
+
+    <!-- Permission -->
+    <string name="permission_location_rationale">需要位置权限以获取 WiFi 网络信息</string>
+    <string name="permission_denied">权限被拒绝，部分功能不可用</string>
+</resources>
