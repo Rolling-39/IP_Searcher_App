@@ -2,15 +2,15 @@ package com.example.ipsearcher.ui.theme
 
 import androidx.compose.ui.graphics.Color
 
-// Primary - 科技蓝
-val Primary = Color(0xFF1B6EF3)
-val PrimaryLight = Color(0xFF5A9CF7)
-val PrimaryDark = Color(0xFF004CC9)
+// Primary - 青碧色
+val Primary = Color(0xFF39C5BB)
+val PrimaryLight = Color(0xFF6FFFD7)
+val PrimaryDark = Color(0xFF009489)
 
 // Primary variants
 val OnPrimary = Color(0xFFFFFFFF)
-val PrimaryContainer = Color(0xFFD8E2FF)
-val OnPrimaryContainer = Color(0xFF001B3D)
+val PrimaryContainer = Color(0xFFBFFDF3)
+val OnPrimaryContainer = Color(0xFF004D44)
 
 // Secondary
 val Secondary = Color(0xFF565E71)
@@ -52,7 +52,7 @@ val OnBackground = Color(0xFF1A1C20)
 val CardBackground = Color(0xFFFFFFFF)
 val InfoLabel = Color(0xFF6B7080)
 val InfoValue = Color(0xFF1A1C20)
-val ScanProgress = Color(0xFF1B6EF3)
-val DeviceTagLocal = Color(0xFF1B6EF3)
+val ScanProgress = Color(0xFF39C5BB)
+val DeviceTagLocal = Color(0xFF39C5BB)
 val DeviceTagGateway = Color(0xFFE65100)
 val Divider = Color(0xFFE8E8EE)

@@ -14,22 +14,33 @@
 - **手机热点模式**：扫描连接至本机热点的所有设备
 - 自动检测网络模式，选择最优扫描策略
 
-### 🔄 智能版本适配
+## 版本适配
+
+### 扫描模式
 
 | Android 版本 | 扫描模式 | IP 地址 | MAC 地址 |
 |:---:|:---:|:---:|:---:|
 | 8 - 9 | ARP 扫描 | ✅ | ✅ |
 | 10 - 12 | ARP 扫描 | ✅ | ⚠️ 系统隐私保护 |
-| 13+ | Ping 扫描 | ✅ | ❌ 不可用 |
+| 13+ | Ping 扫描（系统 `ping` 命令） | ✅ | ❌ 不可用 |
 
 - **Android 8-12**：UDP 广播探测 → 读取 ARP 表 → 获取 IP + MAC
-- **Android 13+**：并发 ICMP Ping 探测 → 仅获取 IP（`/proc/net/arp` 已被 SELinux 封锁）
+- **Android 13+**：并发系统 `ping` 命令 ICMP 探测 → 仅获取 IP（`/proc/net/arp` 被 SELinux 封锁）
+- **热点模式**：直接使用 Ping 扫描（ARP 在热点侧不可靠）
 - 自动降级：ARP 扫描无结果时自动切换 Ping 扫描
+
+### 热点检测
+
+4 层检测策略确保兼容性：
+1. `ConnectivityManager.getTetheredInterfaces()` — 最可靠
+2. `WifiManager.isApEnabled()` 反射
+3. `WifiManager.isWifiApEnabled()` 反射
+4. IP 网段推断 — 兜底方案
 
 ## 技术栈
 
 - **语言**：Kotlin 1.9.22
-- **UI 框架**：Jetpack Compose + Material 3
+- **UI 框架**：Jetpack Compose + Material 3（自定义青碧色主题 #39C5BB）
 - **架构**：MVVM（StateFlow 驱动）
 - **构建**：AGP 8.2.2 + Gradle 8.5
 - **最低版本**：Android 8.0（API 26）
@@ -83,9 +94,9 @@ app/src/main/java/com/example/ipsearcher/
 ## 已知限制
 
 - **Android 10+**：系统隐私保护，`WifiInfo.getMacAddress()` 返回假值 `02:00:00:00:00:00`，无法获取真实 MAC 地址
-- **Android 13+**：`/proc/net/arp` 和 `ip neigh` 被 SELinux 策略封锁，ARP 扫描不可用，自动降级为 Ping 扫描（仅 IP，无 MAC）
-- **热点检测**：部分定制 ROM 的反射 API 可能被封锁，App 使用 4 层检测策略（TetheredInterfaces → isApEnabled → isWifiApEnabled → IP 推断）确保兼容性
-- **Ping 扫描**：部分设备可能屏蔽 ICMP echo，导致扫描不完整
+- **Android 13+**：`/proc/net/arp` 和 `ip neigh` 被 SELinux 策略封锁，ARP 扫描不可用，自动降级为系统 `ping` 命令扫描（仅 IP，无 MAC）
+- **Ping 扫描**：部分网络环境可能屏蔽 ICMP echo，导致扫描不完整
+- **动态颜色**：已禁用 Material You 动态取色，使用自定义青碧色主题确保一致性
 
 ## License
 

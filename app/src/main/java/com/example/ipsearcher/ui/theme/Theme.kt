@@ -70,7 +70,7 @@ private val DarkColorScheme = darkColorScheme(
 @Composable
 fun IPSearcherTheme(
     darkTheme: Boolean = isSystemInDarkTheme(),
-    dynamicColor: Boolean = true,
+    dynamicColor: Boolean = false,
     content: @Composable () -> Unit
 ) {
     // 动态颜色仅在 Android 12+ 可用
